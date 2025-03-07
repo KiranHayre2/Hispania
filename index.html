@@ -229,6 +229,25 @@
             box-shadow: 0 0 10px white;
             transform: scale(1.2);
         }
+        
+        /* Video container styles */
+        .video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .video-container iframe {
+            width: 80%;
+            height: 80%;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+        }
 
         /* Unique animations for each slide - modified to ensure visibility */
         /* Slide 1 - Title slide */
@@ -240,34 +259,39 @@
             animation: fadeInUp 1.5s 0.5s ease forwards;
         }
         
-        /* Slide 2 - Travel Package */
-        #slide2 .package-item:nth-child(1) { animation: slideInLeft 0.6s 0.2s ease forwards; }
-        #slide2 .package-item:nth-child(2) { animation: slideInLeft 0.6s 0.4s ease forwards; }
-        #slide2 .package-item:nth-child(3) { animation: slideInLeft 0.6s 0.6s ease forwards; }
-        #slide2 .package-item:nth-child(4) { animation: slideInLeft 0.6s 0.8s ease forwards; }
-        #slide2 .package-item:nth-child(5) { animation: slideInLeft 0.6s 1.0s ease forwards; }
-        #slide2 .price { animation: bounceIn 1s 1.2s ease forwards; }
+        /* Video Slide Animation */
+        #slide2 .video-container {
+            animation: zoomInFade 1.2s ease forwards;
+        }
         
-        /* Slide 3 - Delhi Introduction */
-        #slide3 h1 { animation: zoomInFade 1s ease forwards; }
-        #slide3 h2 { animation: zoomInFade 1s 0.3s ease forwards; }
-        #slide3 .content { animation: fadeIn 1.5s 0.6s ease forwards; }
+        /* Slide 3 - Travel Package */
+        #slide3 .package-item:nth-child(1) { animation: slideInLeft 0.6s 0.2s ease forwards; }
+        #slide3 .package-item:nth-child(2) { animation: slideInLeft 0.6s 0.4s ease forwards; }
+        #slide3 .package-item:nth-child(3) { animation: slideInLeft 0.6s 0.6s ease forwards; }
+        #slide3 .package-item:nth-child(4) { animation: slideInLeft 0.6s 0.8s ease forwards; }
+        #slide3 .package-item:nth-child(5) { animation: slideInLeft 0.6s 1.0s ease forwards; }
+        #slide3 .price { animation: bounceIn 1s 1.2s ease forwards; }
         
-        /* Slide 4 - Qutub Minar */
-        #slide4 h1 { animation: flipIn 1s ease forwards; }
-        #slide4 .content { animation: slideInRight 1s 0.5s ease forwards; }
+        /* Slide 4 - Delhi Introduction */
+        #slide4 h1 { animation: zoomInFade 1s ease forwards; }
+        #slide4 h2 { animation: zoomInFade 1s 0.3s ease forwards; }
+        #slide4 .content { animation: fadeIn 1.5s 0.6s ease forwards; }
         
-        /* Slide 5 - Red Fort */
-        #slide5 h1 { animation: dropDown 1s ease forwards; }
-        #slide5 .content { animation: growIn 1s 0.5s ease forwards; }
+        /* Slide 5 - Qutub Minar */
+        #slide5 h1 { animation: flipIn 1s ease forwards; }
+        #slide5 .content { animation: slideInRight 1s 0.5s ease forwards; }
         
-        /* Slide 6 - Jama Masjid */
-        #slide6 h1 { animation: rotateIn 1s ease forwards; }
-        #slide6 .content { animation: fadeInScale 1s 0.5s ease forwards; }
+        /* Slide 6 - Red Fort */
+        #slide6 h1 { animation: dropDown 1s ease forwards; }
+        #slide6 .content { animation: growIn 1s 0.5s ease forwards; }
         
-        /* Slide 7 - Chandni Chowk */
-        #slide7 h1 { animation: slideFromTop 1s ease forwards; }
-        #slide7 .content { animation: slideFromBottom 1s 0.5s ease forwards; }
+        /* Slide 7 - Jama Masjid */
+        #slide7 h1 { animation: rotateIn 1s ease forwards; }
+        #slide7 .content { animation: fadeInScale 1s 0.5s ease forwards; }
+        
+        /* Slide 8 - Chandni Chowk */
+        #slide8 h1 { animation: slideFromTop 1s ease forwards; }
+        #slide8 .content { animation: slideFromBottom 1s 0.5s ease forwards; }
         
         /* Animation Keyframes - modified to ensure visibility */
         @keyframes fadeInDown {
@@ -507,6 +531,12 @@
                 padding: 15px;
                 margin: 5px;
             }
+            
+            /* Adjust video container for mobile */
+            .video-container iframe {
+                width: 95%;
+                height: 40%;
+            }
         }
 
         /* Portrait orientation specific adjustments */
@@ -536,8 +566,19 @@
             </div>
         </div>
         
-        <!-- Slide 2: Travel Package -->
-        <div class="slide" id="slide2" style="background-image: url('https://www.travelandleisure.com/thmb/iAIrOVW7yWrDG8pZBpKMOvEGuNQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/new-delhi-india-NEWDELHITG0721-60d592e1603349298a0206d67d08582b.jpg'); background-color: #138808;">
+        <!-- NEW Slide 2: Video -->
+        <div class="slide" id="slide2" style="background-color: #000;">
+            <div class="slide-overlay" style="background: rgba(0, 0, 0, 0.8);">
+                <div class="pattern-overlay"></div>
+                <div class="video-container">
+                    <!-- The YouTube video with autoplay and no controls -->
+                    <iframe id="indiaVideo" src="https://www.youtube.com/embed/Dy9EcfRA-M4?autoplay=0&mute=1&controls=0" title="Heart of india Travel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Travel Package (Previously Slide 2) -->
+        <div class="slide" id="slide3" style="background-image: url('https://www.travelandleisure.com/thmb/iAIrOVW7yWrDG8pZBpKMOvEGuNQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/new-delhi-india-NEWDELHITG0721-60d592e1603349298a0206d67d08582b.jpg'); background-color: #138808;">
             <div class="slide-overlay">
                 <div class="pattern-overlay"></div>
                 <h1>Plan de Viaje</h1>
@@ -559,8 +600,8 @@
             </div>
         </div>
         
-        <!-- Slide 3: Delhi Introduction -->
-        <div class="slide" id="slide3" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80'); background-color: #000080;">
+        <!-- Slide 4: Delhi Introduction (Previously Slide 3) -->
+        <div class="slide" id="slide4" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80'); background-color: #000080;">
             <div class="slide-overlay">
                 <div class="pattern-overlay"></div>
                 <h1>Descubre Delhi</h1>
@@ -577,8 +618,8 @@
             </div>
         </div>
         
-        <!-- Slide 4: Qutub Minar -->
-        <div class="slide" id="slide4" style="background-image: url('https://www.holidify.com/images/cmsuploads/compressed/Qutub_Minar_in_the_monsoons_20170908115259.jpg'); background-color: #FF9933;">
+        <!-- Slide 5: Qutub Minar (Previously Slide 4) -->
+        <div class="slide" id="slide5" style="background-image: url('https://www.holidify.com/images/cmsuploads/compressed/Qutub_Minar_in_the_monsoons_20170908115259.jpg'); background-color: #FF9933;">
             <div class="slide-overlay">
                 <div class="pattern-overlay"></div>
                 <h1>Qutub Minar</h1>
@@ -594,8 +635,8 @@
             </div>
         </div>
         
-        <!-- Slide 5: Red Fort -->
-        <div class="slide" id="slide5" style="background-image: url('https://media.istockphoto.com/id/1369987507/photo/red-fort-delhi.jpg?s=612x612&w=0&k=20&c=fo1vWvOCZ8RTYPfUpwickwR20S4nXM9X_4XSGTBl5Ks='); background-color: #FF5733;">
+        <!-- Slide 6: Red Fort (Previously Slide 5) -->
+        <div class="slide" id="slide6" style="background-image: url('https://media.istockphoto.com/id/1369987507/photo/red-fort-delhi.jpg?s=612x612&w=0&k=20&c=fo1vWvOCZ8RTYPfUpwickwR20S4nXM9X_4XSGTBl5Ks='); background-color: #FF5733;">
             <div class="slide-overlay">
                 <div class="pattern-overlay"></div>
                 <h1>Fuerte Rojo (Red Fort)</h1>
@@ -611,8 +652,8 @@
             </div>
         </div>
         
-        <!-- Slide 6: Jama Masjid -->
-        <div class="slide" id="slide6" style="background-image: url('https://www.holidify.com/images/cmsuploads/compressed/1467364149020b5c0310ek1_20200515152418.jpg'); background-color: #138808;">
+        <!-- Slide 7: Jama Masjid (Previously Slide 6) -->
+        <div class="slide" id="slide7" style="background-image: url('https://www.holidify.com/images/cmsuploads/compressed/1467364149020b5c0310ek1_20200515152418.jpg'); background-color: #138808;">
             <div class="slide-overlay">
                 <div class="pattern-overlay"></div>
                 <h1>Jama Masjid</h1>
@@ -628,8 +669,8 @@
             </div>
         </div>
         
-        <!-- Slide 7: Chandni Chowk -->
-        <div class="slide" id="slide7" style="background-image: url('https://a.travel-assets.com/findyours-php/viewfinder/images/res70/68000/68005-New-Delhi.jpg'); background-color: #000080;">
+        <!-- Slide 8: Chandni Chowk (Previously Slide 7) -->
+        <div class="slide" id="slide8" style="background-image: url('https://a.travel-assets.com/findyours-php/viewfinder/images/res70/68000/68005-New-Delhi.jpg'); background-color: #000080;">
             <div class="slide-overlay">
                 <div class="pattern-overlay"></div>
                 <h1>Gran Bazar de Chandni Chowk</h1>
@@ -661,6 +702,7 @@
     <script>
         let currentSlide = 1;
         const totalSlides = document.querySelectorAll('.slide').length;
+        let videoPlaying = false;
         
         // Initialize slide indicators
         const indicatorsContainer = document.getElementById('indicators');
@@ -690,12 +732,27 @@
         }
         
         function showSlide(slideNumber) {
+            // Get the video iframe if we're currently on the video slide
+            const videoIframe = document.getElementById('indiaVideo');
+            
+            // If we're leaving the video slide, stop the video
+            if (currentSlide === 2 && videoPlaying) {
+                videoIframe.src = videoIframe.src.replace('autoplay=1', 'autoplay=0');
+                videoPlaying = false;
+            }
+            
             // Hide current slide
             document.getElementById('slide' + currentSlide).classList.remove('active');
             
             // Show the selected slide
             document.getElementById('slide' + slideNumber).classList.add('active');
             currentSlide = slideNumber;
+            
+            // If we're moving to the video slide, start the video
+            if (currentSlide === 2) {
+                videoIframe.src = videoIframe.src.replace('autoplay=0', 'autoplay=1');
+                videoPlaying = true;
+            }
             
             updateProgressBar();
             updateIndicators();
@@ -771,7 +828,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Force all slides to be properly styled
             setTimeout(() => {
-                                document.querySelectorAll('.slide').forEach((slide, index) => {
+                document.querySelectorAll('.slide').forEach((slide, index) => {
                     if (index === 0) {
                         slide.classList.add('active');
                     } else {
@@ -817,12 +874,33 @@
                     content.style.maxHeight = maxContentHeight + 'px';
                     content.style.overflowY = 'auto';
                 });
+                
+                // Adjust video size for mobile
+                const videoContainer = document.querySelector('.video-container iframe');
+                if (videoContainer) {
+                    if (windowWidth < windowHeight) {
+                        // Portrait mode
+                        videoContainer.style.width = '90%';
+                        videoContainer.style.height = '40%';
+                    } else {
+                        // Landscape mode
+                        videoContainer.style.width = '90%';
+                        videoContainer.style.height = '70%';
+                    }
+                }
             } else {
                 // Reset for desktop
                 document.querySelectorAll('.content').forEach(content => {
                     content.style.maxHeight = '';
                     content.style.overflowY = '';
                 });
+                
+                // Reset video size for desktop
+                const videoContainer = document.querySelector('.video-container iframe');
+                if (videoContainer) {
+                    videoContainer.style.width = '80%';
+                    videoContainer.style.height = '80%';
+                }
             }
         }
     </script>
